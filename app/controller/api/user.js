@@ -16,13 +16,13 @@ class UserController extends Controller {
     // 获取用户信息
     async getUser() {
         const {ctx} = this;
-        const query = ctx.query;
-        if (!query.username) {
+        const {username} = ctx.query;
+        if (!username) {
             ctx.status = 404;
             ctx.body = '用户名不能为空';
             return;
         }
-        const user = query;
+        const user = await ctx.service.user.getUser(username);
         ctx.status = 200;
         ctx.body = user;
     }

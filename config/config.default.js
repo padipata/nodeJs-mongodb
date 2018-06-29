@@ -9,6 +9,12 @@ module.exports = appInfo => {
     // 部署环境
     config.domain = 'http://127.0.0.1:7001';
 
+    //连接 MongoDB
+    config.mongoose = {
+        url: 'mongodb://127.0.0.1/egg',
+        options: {},
+    };
+
     // token凭证
     config.jwtSecret = 'padipata';
 

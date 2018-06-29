@@ -1,9 +1,9 @@
 'use strict';
 
-exports.mysql = {
-    enable: true,
-    package: 'egg-mysql',
-};
+// exports.mysql = {
+//     enable: true,
+//     package: 'egg-mysql',
+// };
 
 //信息校验
 exports.validate = {

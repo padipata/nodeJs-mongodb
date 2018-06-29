@@ -10,17 +10,17 @@ module.exports = appInfo => {
     config.domain = 'http://127.0.0.1:7001';
 
     // token凭证
-    config.jwtSecret = 'pengjunhao';
+    config.jwtSecret = 'padipata';
 
     // 使用koa的中间件
-    config.middleware = ['errorHandler', 'notfoundHandler'];
+    config.middleware = ['errorHandler'];
 
     config.auth = {
         test: 'tst',
     };
 
     config.errorHandler = {
-        match: '/api',
+        match: '/api/v1',
     };
 
     // 关闭安全威胁csrf的防范

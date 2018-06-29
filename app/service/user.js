@@ -10,14 +10,11 @@ module.exports = app => {
          * @return {Promise.<*>}    用户信息
          */
         async getUser(username) {
-            console.log(username, 'test')
-            const user = await this.ctx.model.User.find({});
-            console.log(user);
-            // if (user) {
-            //     return user
-            // }
-            // throw new Error('用户不存在')
-            return user
+            const user = await this.ctx.model.User.findOne({username: username});
+            if (user) {
+                return user
+            }
+            throw new Error('用户不存在')
         }
     }
 

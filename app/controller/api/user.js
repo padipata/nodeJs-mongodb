@@ -26,6 +26,12 @@ class UserController extends Controller {
         ctx.status = 200;
         ctx.body = user;
     }
+
+    //模板渲染
+    async index() {
+        const {ctx} = this;
+        await ctx.render('index.tpl');
+    }
 }
 
 module.exports = UserController;

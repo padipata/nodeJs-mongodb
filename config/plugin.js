@@ -1,14 +1,21 @@
 'use strict';
 
-//mysql 配置
+//mysql
 // exports.mysql = {
 //     enable: true,
 //     package: 'egg-mysql',
 // };
 
+//mongodb
 exports.mongoose = {
     enable: true,
     package: 'egg-mongoose',
+};
+
+//模板渲染
+exports.nunjucks = {
+    enable: true,
+    package: 'egg-view-nunjucks',
 };
 
 //信息校验

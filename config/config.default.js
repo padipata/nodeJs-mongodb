@@ -15,6 +15,14 @@ module.exports = appInfo => {
         options: {},
     };
 
+    //模板渲染
+    config.view = {
+        defaultViewEngine: 'nunjucks',
+        mapping: {
+            '.ng': 'nunjucks',
+        },
+    };
+
     // token凭证
     config.jwtSecret = 'padipata';
 

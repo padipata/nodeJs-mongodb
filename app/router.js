@@ -35,6 +35,7 @@ module.exports = app => {
     // 用户校验中间件
     const {router, controller} = app;
 
+    router.get('/', 'admin.index.index');
     // --------------------------------------------
     //                   v1 组群
     // --------------------------------------------

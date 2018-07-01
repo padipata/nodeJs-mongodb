@@ -13,6 +13,7 @@
     "egg-scripts": "^2.5.1",
     "egg-swagger": "^1.1.2",
     "egg-validate": "^1.0.0",
+    "egg-view-nunjucks": "^2.2.0",
     "jsonwebtoken": "^8.2.0"
   },
   "devDependencies": {

@@ -28,18 +28,19 @@
  */
 'use strict';
 
-/**
- * @param {Egg.Application} app - egg application
- */
 module.exports = app => {
     // 用户校验中间件
     const {router, controller} = app;
 
+    //验证token中间件
+    const auth = app.middlewares.auth();
+    // router.post('/api/user', auth.isLogin, 'api.user.getUser');//实例
+
     router.get('/', 'admin.index.index');
+
     // --------------------------------------------
     //                   v1 组群
     // --------------------------------------------
     router.get('/api/v1/getUser', 'api.user.getUser');//获取用户信息
-
 
 };

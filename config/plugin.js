@@ -1,11 +1,5 @@
 'use strict';
 
-//mysql
-// exports.mysql = {
-//     enable: true,
-//     package: 'egg-mysql',
-// };
-
 //mongodb
 exports.mongoose = {
     enable: true,

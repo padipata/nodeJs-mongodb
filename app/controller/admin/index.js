@@ -6,7 +6,11 @@ class IndexController extends Controller {
     //模板渲染
     async index() {
         const {ctx} = this;
-        await ctx.render('index.html');
+        await ctx.render('index.html', {
+            user: {
+                name: 'padipata',
+            }
+        });
     }
 }
 

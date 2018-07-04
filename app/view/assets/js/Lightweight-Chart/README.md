@@ -56,4 +56,4 @@ $('.bar-chart').cssCharts({type:"bar"});
 
 - - - 
 
-style to your hearts content, see index.html for an example implementation.  
+style to your hearts content, see / for an example implementation.

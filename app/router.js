@@ -35,15 +35,17 @@ module.exports = app => {
     const auth = app.middlewares.auth();
     // router.post('/api/user', auth.isLogin, 'api.user.getUser');//实例
 
-    // 进入首页
-    router.get('/', 'admin.index.index');
-
     // 发送邮件
     router.get('/api/sendmail', 'api.mail.getMail');
 
-    // --------------------------------------------
-    //                   v1 组群
-    // --------------------------------------------
+    //⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇//
+    //                    前端接口                  //
+    //⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆//
     router.get('/api/v1/getUser', 'api.user.getUser');//获取用户信息
 
+
+    //⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇//
+    //                    后台接口                  //
+    //⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆//
+    router.get('/', 'admin.index.index');// 首页重定向
 };

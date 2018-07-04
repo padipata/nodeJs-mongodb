@@ -23,9 +23,9 @@ module.exports = appInfo => {
     //模板渲染
     config.view = {
         defaultViewEngine: 'nunjucks',
-        mapping: {
-            '.html': 'nunjucks',
-        },
+        // mapping: {
+        //     '.tpl': 'nunjucks',
+        // },
     };
 
     // 邮件发送通知

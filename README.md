@@ -14,6 +14,7 @@
 2018-03-09 | 添加crypto加密 | crypto.createHash('md5').update(user.user_name).digest('hex');
 2018-07-01 | 添加egg-view-nunjucks | 模板渲染
 2018-07-01 | 添加中间件 wechat.js | 封装微信授权校验
+2018-07-04 | 添加邮件发送 | /api/sendmail
 
 ### 本地开发
 

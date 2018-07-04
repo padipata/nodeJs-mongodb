@@ -31,12 +31,15 @@
 module.exports = app => {
     // 用户校验中间件
     const {router, controller} = app;
-
     //验证token中间件
     const auth = app.middlewares.auth();
     // router.post('/api/user', auth.isLogin, 'api.user.getUser');//实例
 
+    // 进入首页
     router.get('/', 'admin.index.index');
+
+    // 发送邮件
+    router.get('/api/sendmail', 'api.mail.getMail');
 
     // --------------------------------------------
     //                   v1 组群

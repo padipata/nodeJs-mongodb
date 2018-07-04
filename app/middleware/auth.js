@@ -1,7 +1,8 @@
 'use strict';
 const jwt = require('jsonwebtoken');
+
 // 是否已经登录
-const isLogin = function* (next) {
+const isLogin = async function (next) {
     const token = this.request.header.authorization;
     if (!token) {
         this.response.status = 401;
@@ -16,7 +17,10 @@ const isLogin = function* (next) {
         // 有效期小于一小时的重新办法token
         const isOver = exp - now < 60 * 60;
         if (isOver) {
-            const token = jwt.sign({ userId: info.userId, role: info.role }, this.app.config.jwtSecret, { expiresIn: '7d' });
+            const token = jwt.sign({
+                userId: info.userId,
+                role: info.role
+            }, this.app.config.jwtSecret, {expiresIn: '7d'});
             this.set('authorization', 'Bearer ' + token);
         }
     } catch (err) {
@@ -29,7 +33,7 @@ const isLogin = function* (next) {
         }
         return;
     }
-    yield next;
+    await next;
 };
 
 module.exports = () => {

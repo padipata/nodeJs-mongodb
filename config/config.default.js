@@ -28,6 +28,16 @@ module.exports = appInfo => {
         },
     };
 
+    // 邮件发送通知
+    config.mail = {
+        host: 'mail.yipage.com.cn',
+        port: 25,
+        auth: {
+            user: '445664573@qq.com',
+            pass: 'bmjdanmpznmbbici',
+        },
+    };
+
     //静态资源相对路径
     config.static = {
         prefix: '/',

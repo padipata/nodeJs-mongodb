@@ -14,13 +14,10 @@ const isLogin = async function (next) {
         const info = jwt.verify(token.split('Bearer ')[1], this.app.config.jwtSecret);
         const exp = info.exp; // 过期时间
         const now = parseInt(new Date().getTime() / 1000);
-        // 有效期小于一小时的重新办法token
+        // 有效期小于一小时的重新赋值token
         const isOver = exp - now < 60 * 60;
         if (isOver) {
-            const token = jwt.sign({
-                userId: info.userId,
-                role: info.role
-            }, this.app.config.jwtSecret, {expiresIn: '7d'});
+            const token = jwt.sign({uuId: info.uuId}, this.app.config.jwtSecret, {expiresIn: '7d'});
             this.set('authorization', 'Bearer ' + token);
         }
     } catch (err) {

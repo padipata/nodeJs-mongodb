@@ -29,23 +29,17 @@
 'use strict';
 
 module.exports = app => {
-    // 用户校验中间件
     const {router, controller} = app;
-    //验证token中间件
-    const auth = app.middlewares.auth();
-    // router.post('/api/user', auth.isLogin, 'api.user.getUser');//实例
+    const auth = app.middlewares.auth();//校验用户token中间件
+    router.redirect('/', '/index.html');// 首页重定向
+    router.get('/api/sendmail', 'api.mail.getMail');// 发送邮件
 
-    // 发送邮件
-    router.get('/api/sendmail', 'api.mail.getMail');
+    router.post('/api/v2/user/register', 'api.user.register');//注册
+    router.post('/api/v2/user/login', 'api.user.login');//登录
+    router.post('/api/v2/user', auth.isLogin, 'api.user.getUser');//用户信息
+    router.post('/api/v2/users', auth.isLogin, 'api.user.getUsers');//用户列表
+    router.post('/api/v2/user/update', auth.isLogin, 'api.user.update');//更新用户信息
+    router.post('/api/v2/user/changePassword', auth.isLogin, 'api.user.changePassword');//修改密码
 
-    //⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇//
-    //                    前端接口                  //
-    //⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆//
-    router.get('/api/v1/getUser', 'api.user.getUser');//获取用户信息
 
-
-    //⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇//
-    //                    后台接口                  //
-    //⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆//
-    router.get('/', 'admin.index.index');// 首页重定向
 };

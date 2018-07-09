@@ -1,6 +1,5 @@
 'use strict';
 
-const path = require('path');
 module.exports = appInfo => {
     const config = {};
 
@@ -20,14 +19,6 @@ module.exports = appInfo => {
         options: {},
     };
 
-    //模板渲染
-    config.view = {
-        defaultViewEngine: 'nunjucks',
-        // mapping: {
-        //     '.tpl': 'nunjucks',
-        // },
-    };
-
     // 邮件发送通知
     config.mail = {
         host: 'mail.yipage.com.cn',
@@ -38,18 +29,8 @@ module.exports = appInfo => {
         },
     };
 
-    //静态资源相对路径
-    config.static = {
-        prefix: '/',
-        dir: [path.join(appInfo.baseDir, 'app/view'), path.join(appInfo.baseDir, 'app/public')],
-        dynamic: true,
-        preload: false,
-        buffer: false,
-        maxFiles: 1000,
-    };
-
     // token凭证
-    config.jwtSecret = 'padipata';
+    config.jwtSecret = 'yipage';
 
     // 使用koa的中间件
     config.middleware = ['errorHandler'];

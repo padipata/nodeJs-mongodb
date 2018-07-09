@@ -6,12 +6,6 @@ exports.mongoose = {
     package: 'egg-mongoose',
 };
 
-//模板渲染
-exports.nunjucks = {
-    enable: true,
-    package: 'egg-view-nunjucks',
-};
-
 //信息校验
 exports.validate = {
     enable: true,

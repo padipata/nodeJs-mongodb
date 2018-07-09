@@ -6,9 +6,11 @@ module.exports = app => {
     const Schema = mongoose.Schema;
 
     const UserSchema = new Schema({
-        username: {type: String},
-        sex: {type: String},
-        age: {type: Number}
+        userId: {type: String},
+        nickName: {type: String},
+        password: {type: String},
+        token: {type: String},
+        mobile: {type: String},
     });
 
     return mongoose.model('User', UserSchema, 'user');
